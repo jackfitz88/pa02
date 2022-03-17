@@ -29,36 +29,43 @@ public class DoublyLinkedList {
 
     }
 
-    // public Node insert(int location, Album data){
+    public Node insert(int location, Album data){
         
-    // }
+    }
 
     public Node delete(int location){
-        Node toDelete = null;
-
-        if(this.head.data.compareTo(data) == 0){
-            toDelete = this.head;
-            this.head = this.head.next;
-
-            return toDelete;
-        }
-
         Node current = this.head;
 
-        while(current.next != null){
-            if(current.next.data.compareTo(data) == 0){
-                toDelete = current.next;
-                
-                current.next = toDelete.next;
-                toDelete.next = null;
-                return toDelete;
-            }
 
-            current.prev.next = current.next;
+        while(current.next != location){
+
         }
 
+        // Node toDelete = null;
 
-        return toDelete;
+        // if(this.head ){
+        //     toDelete = this.head;
+        //     this.head = this.head.next;
+
+        //     return toDelete;
+        // }
+
+        // Node current = this.head;
+
+        // while(current.next != null){
+        //     if(current.next.data.compareTo(data) == 0){
+        //         toDelete = current.next;
+                
+        //         current.next = toDelete.next;
+        //         toDelete.next = null;
+        //         return toDelete;
+        //     }
+
+        //     current.prev.next = current.next;
+        // }
+
+
+        // return toDelete;
     }
     
     public int getIndex(Album data){
