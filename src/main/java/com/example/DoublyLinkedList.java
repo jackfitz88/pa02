@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.ArrayList;
+
 public class DoublyLinkedList {
     Node head;
     Node tail;
@@ -67,7 +69,6 @@ public class DoublyLinkedList {
 
         }
 
-
         return toDelete;
     }
     
@@ -106,6 +107,10 @@ public class DoublyLinkedList {
 
         return stringBuilder.toString();
     }
+
+    // public ArrayList<Integer> shuffle(){
+        
+    // }
 
     public DoublyLinkedList partition(Album data){
         Node current = this.head;
