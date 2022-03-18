@@ -30,42 +30,45 @@ public class DoublyLinkedList {
     }
 
     public Node insert(int location, Album data){
-        
+        Node toInsert = new Node(data);
+
+
+        if(location == 0){
+            this.head = toInsert;
+            toInsert.prev = this.head;
+            this.head.next = this.tail;
+        }
+
+        return toInsert;
     }
 
-    public Node delete(int location){
+    public Node delete(Album data){
+
+        Node toDelete = null;
+
+        if(this.head.data.compareTo(data) == 0){
+            toDelete = this.head;
+            this.head = this.head.next;
+
+            return toDelete;
+        }
+
         Node current = this.head;
 
-
-        while(current.next != location){
+        while(current.next != null){
+            if(current.next.data.compareTo(data) == 0){
+                toDelete = current.next;
+                
+                current.next = toDelete.next;
+                current.prev.next = current.next;
+                toDelete.next = null;
+                return toDelete;
+            }
 
         }
 
-        // Node toDelete = null;
 
-        // if(this.head ){
-        //     toDelete = this.head;
-        //     this.head = this.head.next;
-
-        //     return toDelete;
-        // }
-
-        // Node current = this.head;
-
-        // while(current.next != null){
-        //     if(current.next.data.compareTo(data) == 0){
-        //         toDelete = current.next;
-                
-        //         current.next = toDelete.next;
-        //         toDelete.next = null;
-        //         return toDelete;
-        //     }
-
-        //     current.prev.next = current.next;
-        // }
-
-
-        // return toDelete;
+        return toDelete;
     }
     
     public int getIndex(Album data){
@@ -73,12 +76,16 @@ public class DoublyLinkedList {
         int count = 0;
 
         while(current.next != null){
-            if(current.next.data.compareTo(data) == 0){
+            if(current.data.compareTo(data) == 0){
                 return count;
             }
-            else{
+            else if(current.next.data.compareTo(data) == 0){
                 count++;
             }
+            else{
+                return -1;
+            }
+            break;
         }
 
         return count;

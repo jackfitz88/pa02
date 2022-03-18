@@ -27,7 +27,11 @@ public class App1 {
         dll.append(a1);
         dll.append(a2);
         dll.append(a3);
+
+        a1.getArtistNames(artistNames1);
+
+        dll.getIndex(a1);
         
-        dll.toString();
+        // dll.toString();
     }
 }

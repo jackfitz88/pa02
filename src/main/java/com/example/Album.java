@@ -15,25 +15,6 @@ public class Album implements Comparable<Album> {
         this.artistNames = new ArrayList<>();
     }
 
-    @Override
-    public String toString() {
-        return this.numID + ": " + this.numSongs + " -- " + "[ " + this.artistNames + " ]";
-    }
-
-    @Override
-    public int compareTo(Album j){
-        if(this.numSongs < j.numSongs){
-            return -1;
-        }
-        else if(this.numSongs > j.numSongs){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-            
-    }
-
     public int getNumID() {
         return numID;
     }
@@ -58,13 +39,40 @@ public class Album implements Comparable<Album> {
         this.title = title;
     }
 
-    public ArrayList<String> getArtistNames() {
-        return artistNames;
+    public String getArtistNames(ArrayList<String> artistNames) {
+        String i = "";
+        for(String j : artistNames){
+            i = j;
+            System.out.println(i + ", ");
+        }
+
+        return i;
     }
 
     public void setArtistNames(ArrayList<String> artistNames) {
         this.artistNames = artistNames;
     }
+
+    @Override
+    public String toString() {
+        return this.numID + ": " + this.numSongs + " -- " + "[ " + getArtistNames(this.artistNames) + " ]";
+    }
+
+    @Override
+    public int compareTo(Album j){
+        if(this.numSongs < j.numSongs){
+            return -1;
+        }
+        else if(this.numSongs > j.numSongs){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+            
+    }
+
+    
 
     
 

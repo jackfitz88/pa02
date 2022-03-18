@@ -34,9 +34,9 @@ public class AlbumTest {
         a2.toString();
         a3.toString();
 
-        assertEquals("45: 9 -- [ [] ]", a1.toString());
-        assertEquals("17: 15 -- [ [] ]", a2.toString());
-        assertEquals("88: 21 -- [ [] ]", a3.toString());
+        assertEquals("45: 9 -- [  ]", a1.toString());
+        assertEquals("17: 15 -- [  ]", a2.toString());
+        assertEquals("88: 21 -- [  ]", a3.toString());
 
     }
 
