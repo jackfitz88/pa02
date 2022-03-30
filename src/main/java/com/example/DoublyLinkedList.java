@@ -33,13 +33,20 @@ public class DoublyLinkedList {
 
     public Node insert(int location, Album data){
         Node toInsert = new Node(data);
+        int counter = 0;
 
-        if(location == 0){
-            this.head = toInsert;
-            toInsert.prev = this.head;
-            this.head.next = this.tail;
+        while(this.head.next != null){
+            if(location == counter){
+                this.head = toInsert;
+                toInsert.prev = this.head;
+                this.head.next = this.tail;
+                return toInsert;
+            }
+            else{
+                counter++;
+            }
         }
-
+        
         return toInsert;
     }
 
@@ -144,9 +151,14 @@ public class DoublyLinkedList {
         return stringBuilder.toString();
     }
 
-    // public ArrayList<Integer> shuffle(){
-        //counter % 2
-    // }
+    public ArrayList<Integer> shuffle(){
+        Arraylist<Integer> even = new ArrayList<Integer>();
+        Arraylist<Integer> odd = new ArrayList<Integer>();
+        int counter = 0;
+        // counter % 2
+        
+        
+    }
 
     public DoublyLinkedList partition(Album data){
         //new arraly list return a array list
