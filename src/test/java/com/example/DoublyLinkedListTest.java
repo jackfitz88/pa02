@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ class DoublyLinkedListTest {
     }
 
     @Test
-    public void testDelete() {
+    public void testDelete() throws IllegalArgumentException, IllegalAccessException {
         DoublyLinkedList dll = new DoublyLinkedList();
 
         ArrayList<String> artistNames1 = new ArrayList<>();
@@ -132,7 +133,6 @@ class DoublyLinkedListTest {
         dll.append(a1);
         dll.append(a2);
         
-        
         assertEquals(0, dll.getIndex(a1));
         assertEquals(1, dll.getIndex(a2));
         assertEquals(-1, dll.getIndex(a3));
@@ -159,7 +159,9 @@ class DoublyLinkedListTest {
         dll.append(a2);
         dll.append(a3);
 
-        assertEquals("Null", dll.partition(a1).toString());
+        // boolean isSame = ("[17: 15 -- [  ] -> Null]").equals(dll.partition(a1));
+        // assertTrue(isSame);
+        assertEquals("17: 15 -- [  ] -> Null", dll.partition(a1).toString());
         assertEquals("Null", dll.partition(a2).toString());
         assertEquals("Null", dll.partition(a3).toString());
     }
