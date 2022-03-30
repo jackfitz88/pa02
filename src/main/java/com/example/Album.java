@@ -3,6 +3,7 @@ package com.example;
 import java.util.ArrayList;
 
 public class Album implements Comparable<Album> {
+    //change ints to Integers
     protected int numID;
     protected int numSongs;
     protected String title;
@@ -60,6 +61,7 @@ public class Album implements Comparable<Album> {
 
     @Override
     public int compareTo(Album j){
+        //return this.numSong.compareTo(j.numSongs);
         if(this.numSongs < j.numSongs){
             return -1;
         }

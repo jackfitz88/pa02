@@ -34,7 +34,6 @@ public class DoublyLinkedList {
     public Node insert(int location, Album data){
         Node toInsert = new Node(data);
 
-
         if(location == 0){
             this.head = toInsert;
             toInsert.prev = this.head;
@@ -42,6 +41,46 @@ public class DoublyLinkedList {
         }
 
         return toInsert;
+    }
+
+    public Node Delete(int location) throws IllegalArgumentException, IllegalAccessException{
+        if(this.head == null){
+            throw new IllegalAccessException("out of bounds");
+        }
+
+        if(location == 0){
+            Node toDelete = this.head;
+            this.head = this.head.next;
+            if(this.head == null){
+                this.tail = null;
+            }
+            return toDelete;
+        }
+
+        int counter = 0;
+        Node toDelete = this.head.next;
+        while(toDelete != null){
+            if(counter == location){
+                Node next = toDelete.next;
+                Node prev = toDelete.prev;
+
+                prev.next = toDelete.next;
+
+                if(next == null){
+                    this.tail = prev;
+                    return toDelete;
+                }
+                else{
+                    next.prev = prev;
+                    return toDelete;
+                }
+            }
+
+            toDelete = toDelete.next;
+            counter++;
+        }
+
+        throw new IllegalArgumentException();
     }
 
     public Node delete(Album data){
@@ -80,16 +119,13 @@ public class DoublyLinkedList {
             if(current.data.compareTo(data) == 0){
                 return count;
             }
-            else if(current.next.data.compareTo(data) == 0){
-                count++;
-            }
             else{
-                return -1;
+                current = current.next;
+                return count++;
             }
-            break;
         }
 
-        return count;
+        return -1;
     }
 
     public String toString(){
@@ -109,10 +145,11 @@ public class DoublyLinkedList {
     }
 
     // public ArrayList<Integer> shuffle(){
-        
+        //counter % 2
     // }
 
     public DoublyLinkedList partition(Album data){
+        //new arraly list return a array list
         Node current = this.head;
         DoublyLinkedList dll = new DoublyLinkedList();
 
