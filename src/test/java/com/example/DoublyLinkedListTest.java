@@ -130,12 +130,32 @@ class DoublyLinkedListTest {
         artistNames3.add("RI RI 101");
         Album a3 = new Album(88, 21, "Dalcony", artistNames3);
 
+        ArrayList<String> artistNames4 = new ArrayList<>();
+        artistNames4.add("");
+        Album a4 = new Album(94, 6, "The Sopranos", artistNames4);
+
         dll.append(a1);
         dll.append(a2);
+        dll.append(a3);
         
         assertEquals(0, dll.getIndex(a1));
         assertEquals(1, dll.getIndex(a2));
-        assertEquals(-1, dll.getIndex(a3));
+        assertEquals(2, dll.getIndex(a3));
+        assertEquals(-1, dll.getIndex(a4));
+    }
+
+    @Test
+    public void testShuffle() {
+        DoublyLinkedList dll = new DoublyLinkedList();
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+        numbers.add(6);
+
+        assertEquals("[2, 1, 4, 3, 6, 5]", dll.shuffle(numbers).toString());
     }
 
     @Test

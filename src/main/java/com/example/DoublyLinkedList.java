@@ -33,16 +33,22 @@ public class DoublyLinkedList {
 
     public Node insert(int location, Album data){
         Node toInsert = new Node(data);
+        Node current = this.head;
         int counter = 0;
 
-        while(this.head.next != null){
+        while(current.next != null){
+            Node prev = current.prev;
+            Node next = current.next;
+
             if(location == counter){
-                this.head = toInsert;
-                toInsert.prev = this.head;
-                this.head.next = this.tail;
-                return toInsert;
+                prev.next = toInsert;
+                toInsert.next = next;
+                next.prev = toInsert;
+                toInsert.prev = prev;
+                // return toInsert;
             }
             else{
+                current = current.next;
                 counter++;
             }
         }
@@ -128,8 +134,9 @@ public class DoublyLinkedList {
             }
             else{
                 current = current.next;
-                return count++;
+                count++;
             }
+            
         }
 
         return -1;
@@ -151,22 +158,40 @@ public class DoublyLinkedList {
         return stringBuilder.toString();
     }
 
-    public ArrayList<Integer> shuffle(){
-        Arraylist<Integer> even = new ArrayList<Integer>();
-        Arraylist<Integer> odd = new ArrayList<Integer>();
-        int counter = 0;
-        // counter % 2
-        
-        
+    public ArrayList<Integer> shuffle(ArrayList<Integer> numbers){
+        ArrayList<Integer> even = new ArrayList<Integer>();
+        ArrayList<Integer> odd = new ArrayList<Integer>();
+        ArrayList<Integer> shuffledNums = new ArrayList<>();
+
+        for(int i = 0; i < numbers.size(); i++){
+            if(i % 2 == 0){
+                int num = numbers.get(i);
+                odd.add(num);
+            }
+            else{
+                int num2 = numbers.get(i);
+                even.add(num2);
+            }
+        }
+
+        for(int i = 0; i < even.size(); i++){
+            int evens = even.get(i);
+            shuffledNums.add(evens);
+            for(int j = 2; j < odd.size(); j++){
+                int odds = odd.get(i);
+                shuffledNums.add(odds);
+            }
+        }
+
+        return shuffledNums;
     }
 
     public DoublyLinkedList partition(Album data){
-        //new arraly list return a array list
         Node current = this.head;
         DoublyLinkedList dll = new DoublyLinkedList();
 
         while(current.next != null){
-            if(current.data.compareTo(data) > 1){
+            if(current.data.compareTo(data) >= 1){
                 dll.append(current.data);
             }
             current = current.next;
