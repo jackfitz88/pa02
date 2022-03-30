@@ -156,6 +156,7 @@ class DoublyLinkedListTest {
         numbers.add(6);
 
         assertEquals("[2, 1, 4, 3, 6, 5]", dll.shuffle(numbers).toString());
+        
     }
 
     @Test
