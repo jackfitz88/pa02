@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Album implements Comparable<Album> {
     //change ints to Integers
-    protected int numID;
-    protected int numSongs;
+    protected Integer numID;
+    protected Integer numSongs;
     protected String title;
     protected ArrayList<String> artistNames;
 
@@ -61,16 +61,16 @@ public class Album implements Comparable<Album> {
 
     @Override
     public int compareTo(Album j){
-        //return this.numSong.compareTo(j.numSongs);
-        if(this.numSongs < j.numSongs){
-            return -1;
-        }
-        else if(this.numSongs > j.numSongs){
-            return 1;
-        }
-        else{
-            return 0;
-        }
+        return this.numSongs.compareTo(j.numSongs);
+        // if(this.numSongs < j.numSongs){
+        //     return -1;
+        // }
+        // else if(this.numSongs > j.numSongs){
+        //     return 1;
+        // }
+        // else{
+        //     return 0;
+        // }
             
     }
 

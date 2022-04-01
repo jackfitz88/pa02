@@ -107,9 +107,9 @@ class DoublyLinkedListTest {
         dll.append(a1);
         dll.append(a2);
         dll.append(a3);
-        dll.insert(0, a4);
+        dll.insert(1, a4);
 
-        assertEquals("94: 6 -- [  ]", dll.head.data.toString());
+        assertEquals("94: 6 -- [  ]", dll.head.next.data.toString());
 
     }
 
@@ -156,7 +156,7 @@ class DoublyLinkedListTest {
         numbers.add(6);
 
         assertEquals("[2, 1, 4, 3, 6, 5]", dll.shuffle(numbers).toString());
-        
+
     }
 
     @Test

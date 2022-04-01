@@ -128,7 +128,7 @@ public class DoublyLinkedList {
         Node current = this.head;
         int count = 0;
 
-        while(current.next != null){
+        while(current != null){
             if(current.data.compareTo(data) == 0){
                 return count;
             }
